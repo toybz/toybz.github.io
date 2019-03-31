@@ -332,5 +332,13 @@
     });
 
 
+    $("#cf").submit(function (e) {
+      //  alert("Message Sent. Thank You")
+        $("#submission_text").html("Message Sent. Thank You")
+    })
+
+
 
 })(jQuery);
+
+
