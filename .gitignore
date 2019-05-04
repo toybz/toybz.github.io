@@ -2,3 +2,8 @@
 */.DS_Store
 temp-asset/**
 
+.DS_Store
+.idea/workspace.xml
+assets/.DS_Store
+assets/img/.DS_Store
+assets/img/icon/.DS_Store
