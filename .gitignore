@@ -1,4 +1,4 @@
-.idea/
-**/.DS_Store
-temp-asset/
-.idea
+.idea/**
+*/.DS_Store
+temp-asset/**
+
