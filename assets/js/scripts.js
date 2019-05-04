@@ -295,22 +295,23 @@
     $('.screen-reader-response').hide();
     $('form#cf button#cnt_submit').on('click', function() {
         var name = $('#name').val();
-        var email = $('#email').val();
+        var subject = $('#subject').val();
         var msg = $('#msg').val();
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+       // var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-        if (!regex.test(email)) {
-            alert('Please enter valid email');
+       /* if (!regex.test(email)) {
+            $('.screen-reader-response').fadeIn().html('<div class="alert alert-danger"><strong>Warning!</strong> Please Enter A Valid Email Address.</div>')
             return false;
-        }
+        }*/
 
         name = $.trim(name);
-        email = $.trim(email);
+        subject = $.trim(subject);
         msg = $.trim(msg);
 
-        if (name != '' && email != '' && msg != '') {
-            var values = "name=" + name + "&email=" + email + " &msg=" + msg;
-            $.ajax({
+        if ( name != '' && subject != '' && msg != '') {
+
+
+           /* $.ajax({
                 type: "POST",
                 url: "mail.php",
                 data: values,
@@ -324,17 +325,26 @@
                         $('.screen-reader-response').fadeOut('slow');
                     }, 4000);
                 }
-            });
+            });*/
+
+
+                $('#trigger_mail_client').attr('href',
+                    'mailto:toyeeb.rahmon@outlook.com?subject=' +subject + '&body=' + msg);
+
+                $('#trigger_mail_client').click();
+
+
+
+
         } else {
-            $('.screen-reader-response').fadeIn().html('<div class="alert alert-danger"><strong>Warning!</strong> Please fillup the informations correctly.</div>')
+            $('.screen-reader-response').fadeIn().html('<div class="alert alert-danger"><strong>Warning!</strong> Please fill all fields correctly.</div>')
         }
         return false;
     });
 
 
     $("#cf").submit(function (e) {
-      //  alert("Message Sent. Thank You")
-        $("#submission_text").html("Message Sent. Thank You")
+        return false
     })
 
 
